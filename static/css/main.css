@@ -1,0 +1,50 @@
+#all-post{
+	text-align: center;
+	text-decoration: underline;
+}
+
+#create-new{
+	color: gray;
+	font-style: italic;
+	text-align: center;
+}
+
+.post{
+	text-decoration: none;
+	color: gray;
+}
+
+#create-new-1{
+	color: gray;
+	font-style: italic;
+	text-align: center;
+}
+
+#end{
+	border: dotted 3px black;
+}
+
+.title-post{
+	font-family: Times New Roman;
+}
+
+.form-group{
+	margin: 20px;
+}
+
+.log{
+	text-align: center;
+}
+
+@keyframes xyz {
+  from {color: red;}
+  to {color: grey;}
+}
+
+.admin{
+	color: grey;
+	text-align: right;
+	animation-name: xyz;
+	animation-duration: 500ms;
+	animation-iteration-count: infinite;
+}

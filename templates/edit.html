@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Edit Post</title> 
+{% endblock %}
+
+{% block body %}
+<div class="admin">
+<small><i>Using as Admin</i></small>
+</div>
+<h3 id="create-new-1">Edit Blog</h3>
+<br>
+
+<form action='/admin/edit/{{post.id}}' method='POST'>
+    <div class="input-group input-group-sm mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-sm">Title</span>
+        </div>
+        <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name='title' value="{{post.title}}" required>
+    </div>
+    <div class="input-group input-group-sm mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-sm">Author</span>
+        </div>
+        <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name='author' value="{{post.author}}">
+    </div>
+    <div class="form-group">
+        <textarea class="form-control" name="content" rows="5" id="comment" required >{{post.content}}</textarea>
+    </div>
+    <input class="btn btn-success" type='submit' value='Save'>
+</form>
+{% endblock %}

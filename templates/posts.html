@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Posts</title> 
+{% endblock %}
+
+{% block body %}
+<h1 id="all-post">All Posts</h1>
+
+    {% for post in posts %}
+        <br>
+        <h2 class="title-post">&bull; {{ post.title }}</h2>
+
+        {% if post.author %}
+            <small>Written by: <b>{{ post.author }}</b> on <i>{{post.date_posted.strftime('%b %d, %Y')}}</i></small>
+        {% else %}
+            <small>Written by <b>Anonymous</b> on <i>{{post.date_posted.strftime('%b %d, %Y')}}</i></small>
+        {% endif %}
+        <br>
+        <br>
+        
+        <p>{{ post.header()}}
+            <a href="/posts/blog/{{post.id}}" class="post"><i>&emsp; Continue reading... &raquo;</i></a>
+        </p>
+        <!-- <p style="white-space: pre-wrap;">{{ post.content }}</p> -->
+        <hr>
+
+    {% endfor%}
+
+{% endblock %}

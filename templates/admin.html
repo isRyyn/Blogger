@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Admin</title> 
+{% endblock %}
+
+{% block body %}
+<h1 id="all-post">All Posts</h1>
+<div>
+<a style="float: right;" class="btn btn-warning" href="/">Log Out</a>
+</div>
+
+    <div class="new-post">
+
+    <a class="btn btn-success" href="/admin/new_post">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+        </svg> Create New Post</a>
+    </div>
+    <br>
+
+    {% for post in posts %}
+        <br>
+        <h2>&bull; {{ post.title }}</h2>
+
+        {% if post.author %}
+            <small>Written by: <b>{{ post.author }}</b> on <i>{{post.date_posted.strftime('%b %d, %Y')}}</i></small>
+        {% else %}
+            <small>Written by <b>Anonymous</b> on <i>{{post.date_posted.strftime('%b %d, %Y')}}</i></small>
+        {% endif %}
+        <br>
+        <br>
+        
+        <p style="white-space: pre-wrap;">{{ post.content }}</p>
+        <a class="btn btn-danger" href='/admin/delete/{{post.id}}'>Delete</a>
+        <a class="btn btn-info" href='/admin/edit/{{post.id}}'>Edit</a>
+        <br>
+        <br>
+        <hr>
+
+    {% endfor%}
+
+{% endblock %}

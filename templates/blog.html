@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Posts</title> 
+{% endblock %}
+
+{% block body %}
+<br>
+<h2 style="text-align: center;">{{post.title}}</h2>
+<br>
+<br>
+
+    {% if post.author %}
+        <h5>Written by: <b>{{ post.author }}</b> on <i>{{post.date_posted.strftime('%b %d, %Y')}}</i></h5>
+    {% else %}
+        <h5>Written by <b>Anonymous</b> on <i>{{post.date_posted.strftime('%b %d, %Y')}}</i></h5>
+    {% endif %}
+    <br>
+    <br>
+    
+    <p style="white-space: pre-wrap;">{{ post.content }}</p>
+    <hr>
+
+    <a style="float: right;" class="btn btn-outline-primary" href="/posts">&laquo; Go back</a>
+
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<meta http-equiv="refresh" content="30">
+<title>Sign In</title>
+{% endblock %}
+
+{% block body %}
+
+<div class="container">
+    {% for message in get_flashed_messages() %}
+    <div class="alert alert-warning">
+        {{ message }}
+    </div>
+    {% endfor %}
+</div>
+
+
+<h1 style="text-align: center;">Log In as Admin</h1>
+<br>
+<form action="/authenticate" method="POST">
+  <div class="form-group">
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="user-mail" required>
+  </div>
+  <br>
+  <div class="form-group">
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="user-pass" required>
+  </div>
+  <br>
+  <div class="log">
+  	<input type="submit" class="btn btn-dark" value="LogIn">
+  </div>
+</form>
+
+{% endblock %}
