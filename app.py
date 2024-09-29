@@ -27,6 +27,10 @@ class BlogPost(db.Model):
 def index():
     return render_template('index.html')
 
+@app.route('/test')
+def test():
+    return 'Hello, World!'  
+
 @app.route('/authenticate', methods=['GET', 'POST'])
 def authenticate():
     if request.method == 'POST':
